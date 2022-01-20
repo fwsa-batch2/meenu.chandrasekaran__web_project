@@ -73,12 +73,16 @@ function submitHandler(event) {
 }
 
 function updateusersList(object) {
+  //Updating userlist
+
   console.log(object);
   usersList.push(object);
   const arrayToString = JSON.stringify(usersList);
   localStorage.setItem("user_credentials", arrayToString);
 }
 function getAllFields() {
+  //Return already existing contents in local storage
+
   let inArray = [];
   const arrayToString = localStorage.getItem("user_credentials");
   if (arrayToString) {
@@ -89,6 +93,8 @@ function getAllFields() {
   return inArray;
 }
 function pageOnLoadHandler() {
+  //Equating empty user list to contents already existing in local storage
+
   const all = getAllFields();
   usersList = all;
 }

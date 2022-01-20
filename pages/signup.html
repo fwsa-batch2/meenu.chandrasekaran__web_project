@@ -21,104 +21,109 @@
       font-family: sans-serif;
     "
   >
-    <div class="main_container">
-      <div class="sub_container">
-        <span class="group_photo_container">
-          <img
-            src="../assets/images/group_photo.jpg"
-            height="100%"
-            alt="group photo"
-          />
-        </span>
+    <main>
+      <div class="main_container">
+        <div class="sub_container">
+          <span class="group_photo_container">
+            <img
+              src="../assets/images/group_photo.jpg"
+              height="100%"
+              alt="group photo"
+            />
+          </span>
 
-        <div class="heading_container">
-          <h1 class="heading">Sign Up</h1>
-        </div>
-        <span class="form_and_heading_container">
-          <form class="form_container" onsubmit="submitHandler(event)">
-            <div class="toggle_buttons_container">
-              <button type="button" class="student_toggle_button">
-                Student
-              </button>
-              <button
-                type="button"
-                class="admin_toggle_button"
-                onclick="Redirect_to_admin_page()"
-              >
-                Admin
-              </button>
-            </div>
-
-            <div id="student_signup_form_id" class="student_signup_form_class">
-              <input
-                type="text"
-                name="Name"
-                placeholder="Username"
-                id="name"
-                title="Name should not be empty and should contain only characters and space with minimum 3 to maximum 32 characters"
-                pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$"
-                autofocus
-                minlength="3"
-                ;
-                maxlength="32"
-                required
-              />
-
-              <input
-                type="email"
-                name="email"
-                id="email_id"
-                placeholder="Email ID"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                required
-              />
-
-              <input
-                type="password"
-                placeholder="Password"
-                title="Use 8-15 characters with atleast one uppercase,one lowercase and one special character"
-                name="password"
-                id="password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                required
-              />
-
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                id="confirm_password"
-                name="confirmPassword"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                required
-              />
-              <div id="error_message_div"></div>
-              <input
-                type="reset"
-                value="Clear"
-                class="btn btn-outline-danger"
-                id="clearButton"
-              />
-
-              <input
-                type="submit"
-                name="submit"
-                value="Submit"
-                class="btn btn-outline-danger"
-                id="submitButton"
-              />
-
-              <br /><br />
-              <h4 class="redirect_to_signin_div">
-                Already have a account login
-                <a href="./../pages/login.html" class="link_to_signin_page"
-                  >Here</a
+          <div class="heading_container">
+            <h1 class="heading">Sign Up</h1>
+          </div>
+          <span class="form_and_heading_container">
+            <form class="form_container" onsubmit="submitHandler(event)">
+              <div class="toggle_buttons_container">
+                <button type="button" class="student_toggle_button">
+                  Student
+                </button>
+                <button
+                  type="button"
+                  class="admin_toggle_button"
+                  onclick="Redirect_to_admin_page()"
                 >
-              </h4>
-            </div>
-          </form>
-        </span>
+                  Admin
+                </button>
+              </div>
+
+              <div
+                id="student_signup_form_id"
+                class="student_signup_form_class"
+              >
+                <input
+                  type="text"
+                  name="Name"
+                  placeholder="Username"
+                  id="name"
+                  title="Name should not be empty and should contain only characters and space with minimum 3 to maximum 32 characters"
+                  pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$"
+                  autofocus
+                  minlength="3"
+                  ;
+                  maxlength="32"
+                  required
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  id="email_id"
+                  placeholder="Email ID"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  required
+                />
+
+                <input
+                  type="password"
+                  placeholder="Password"
+                  title="Use 8-15 characters with atleast one uppercase,one lowercase and one special character"
+                  name="password"
+                  id="password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  required
+                />
+
+                <input
+                  type="password"
+                  placeholder="Confirm Password"
+                  id="confirm_password"
+                  name="confirmPassword"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  required
+                />
+                <div id="error_message_div"></div>
+                <input
+                  type="reset"
+                  value="Clear"
+                  class="btn btn-outline-danger"
+                  id="clearButton"
+                />
+
+                <input
+                  type="submit"
+                  name="submit"
+                  value="Submit"
+                  class="btn btn-outline-danger"
+                  id="submitButton"
+                />
+
+                <br /><br />
+                <h4 class="redirect_to_signin_div">
+                  Already have a account login
+                  <a href="./../pages/login.html" class="link_to_signin_page"
+                    >Here</a
+                  >
+                </h4>
+              </div>
+            </form>
+          </span>
+        </div>
       </div>
-    </div>
+    </main>
     <script src="../assets/js/signup.js"></script>
   </body>
 </html>
