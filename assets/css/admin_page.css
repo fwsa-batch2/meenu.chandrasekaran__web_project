@@ -1,25 +1,17 @@
-b#emailId {
+#error_message_div {
   color: #e74d2c;
   margin-left: 37px;
 }
-#message1 {
-  color: #e74d2c;
-  margin-left: 37px;
-}
-#message2 {
-  color: #e74d2c;
-  margin-left: 37px;
-}
-.pq1 {
+.redirect_to_signin_div {
   color: #1a4141;
   margin-left: -30px;
   font-size: 16px;
   font-weight: normal;
 }
-.linkto {
+.link_to_signin_page {
   color: #63bfbf;
 }
-.linkto:hover {
+.link_to_signin_page:hover {
   color: #388787;
   text-decoration: none;
 }
@@ -32,10 +24,10 @@ button {
   border: none;
   color: #46a9a9;
 }
-.side {
+.toggle_buttons_container {
   margin-left: -110px;
 }
-.hello {
+.student_toggle_button {
   font-size: 22px;
 }
 button:hover {
@@ -44,23 +36,20 @@ button:hover {
   border: none;
   cursor: pointer;
 }
-.active {
+.admin_toggle_button {
   text-decoration: underline;
   font-size: 27px;
   color: #388787;
   border: none;
 }
-.ss1 {
-  margin-left: 75px;
-}
-.box input[type="text"]::placeholder,
-.box input[type="email"]::placeholder,
-.box input[type="password"]::placeholder,
-.box input[type="date"]::placeholder {
+.form_container input[type="text"]::placeholder,
+.form_container input[type="email"]::placeholder,
+.form_container input[type="password"]::placeholder,
+.form_container input[type="date"]::placeholder {
   color: #153232;
   font-weight: normal;
 }
-#submit1 {
+#submitButton {
   border-radius: 10px;
   color: white;
   background-color: #46a9a9;
@@ -73,13 +62,13 @@ button:hover {
   margin-left: 190px;
   margin-right: -6px;
 }
-#submit1:hover {
+#submitButton:hover {
   cursor: pointer;
   background-color: #63bfbf;
 
   border: 2px #63bfbf solid;
 }
-#clear {
+#clearButton {
   border-radius: 10px;
   border: 2px solid;
   margin-left: 197px;
@@ -91,16 +80,16 @@ button:hover {
   letter-spacing: 0.5px;
   color: #ec745a;
 }
-#clear:hover {
+#clearButton:hover {
   cursor: pointer;
   background-color: #ec745a;
   border-color: #ec745a;
   color: white;
 }
-.box input[type="text"],
-.box input[type="email"],
-.box input[type="password"],
-.box input[type="date"] {
+.form_container input[type="text"],
+.form_container input[type="email"],
+.form_container input[type="password"],
+.form_container input[type="date"] {
   height: 52px;
   border: none;
   background-color: #ebf7f7;
@@ -115,26 +104,23 @@ button:hover {
   font-size: 16px;
   transition: 0.25s;
 }
-.box h1 {
+.heading {
   color: #296565;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 30px;
-  margin-top: 15px;
+  margin-top: -12px;
+  margin-left: 520px;
 }
-.s1 {
-  margin-left: -220px;
-}
-
-.box input[type="text"]:focus,
-.box input[type="email"]:focus,
-.box input[type="password"]:focus,
-.box input[type="date"]:focus {
+.form_container input[type="text"]:focus,
+.form_container input[type="email"]:focus,
+.form_container input[type="password"]:focus,
+.form_container input[type="date"]:focus {
   background-color: #e7f5f5;
   color: #153232;
 }
 
-.test {
+.main_container {
   width: 1700px;
   height: 840px;
   padding: 40px 40px 40px 0px;
@@ -152,14 +138,14 @@ button:hover {
   border-radius: 12px;
 }
 
-.test3 {
+.sub_container {
   background-color: transparent;
   width: 100%;
   height: 70%;
   position: relative;
 }
 
-.test1 {
+.group_photo_container {
   width: 90%;
   height: 110%;
   position: absolute;
@@ -170,11 +156,11 @@ button:hover {
   align-items: center;
   overflow: hidden;
 }
-.test1 img {
+.group_photo_container img {
   border-radius: 9px;
 }
 
-.test2 {
+.form_and_heading_container {
   width: 50%;
   height: 100%;
   background-color: transparent;

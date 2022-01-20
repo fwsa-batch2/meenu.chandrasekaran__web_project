@@ -21,26 +21,33 @@
       font-family: sans-serif;
     "
   >
-    <div class="test">
-      <div class="test3">
-        <span class="test1">
+    <div class="main_container">
+      <div class="sub_container">
+        <span class="group_photo_container">
           <img
-            src="../assets/images/group.JPG"
+            src="../assets/images/group_photo.jpg"
             height="100%"
             alt="group photo"
           />
         </span>
-
-        <span class="test2">
-          <form class="box" onsubmit="submiHandler(event)">
-            <h1 class="s1">Sign Up</h1>
-            <div class="side">
-              <button class="hello" onclick="Student()">Student</button>
-              <button class="active" onclick="Admin()">Admin</button>
+        <div class="heading_container">
+          <h1 class="heading">Sign Up</h1>
+        </div>
+        <span class="form_and_heading_container">
+          <form class="form_container" onsubmit="submitHandler(event)">
+            <div class="toggle_buttons_container">
+              <button
+                type="button"
+                class="student_toggle_button"
+                onclick="Redirect_to_student_Page()"
+              >
+                Student
+              </button>
+              <button type="button" class="admin_toggle_button">Admin</button>
             </div>
             <br />
 
-            <div id="student" class="add">
+            <div id="student_signup_form_id" class="student_signup_form_class">
               <input
                 type="text"
                 name="Name"
@@ -50,7 +57,6 @@
                 pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$"
                 autofocus
                 minlength="3"
-                ;
                 maxlength="32"
                 required
               />
@@ -67,7 +73,7 @@
                 type="password"
                 placeholder="Secret Code"
                 title="Use 8-15 characters with atleast one uppercase,one lowercase and one special character"
-                name="password1"
+                name="Secret code"
                 id="secret_code"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 required
@@ -76,8 +82,8 @@
                 type="password"
                 placeholder="Password"
                 title="Use 8-15 characters with atleast one uppercase,one lowercase and one special character"
-                name="password1"
-                id="password1"
+                name="password"
+                id="password"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 required
               />
@@ -85,35 +91,32 @@
               <input
                 type="password"
                 placeholder="Confirm Password"
-                id="password2"
-                name="password2"
+                id="confirm_password"
+                name="Confirm Password"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 required
               />
-              <div id="emailId"></div>
-              <div id="message1"></div>
-              <div id="message2"></div>
-              <button
-                type="button"
-                onclick="reload()"
+              <div id="error_message_div"></div>
+              <input
+                type="reset"
+                value="Clear"
                 class="btn btn-outline-danger"
-                id="clear"
-              >
-                Clear
-              </button>
+                id="clearButton"
+              />
               <input
                 type="submit"
                 name="submit"
                 value="Submit"
                 class="btn btn-outline-danger"
-                id="submit1"
-                onclick="colorChange()"
+                id="submitButton"
               />
 
               <br /><br />
-              <h4 class="pq1">
+              <h4 class="redirect_to_signin_div">
                 Already have a account login
-                <a href="./../pages/login.html" class="linkto">Here</a>
+                <a href="./../pages/login.html" class="link_to_signin_page"
+                  >Here</a
+                >
               </h4>
             </div>
           </form>

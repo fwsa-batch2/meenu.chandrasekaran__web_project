@@ -1,107 +1,85 @@
-let list = [];
-function reload() {
-  //Reload the page
-  window.location.reload();
+let usersList = [];
+function Redirect_to_student_page() {
+  window.location.href = "../pages/signup.html";
 }
-function Student(){
-    window.location.href="../pages/signup.html"
-}
-function submiHandler(event) {
-  //Get form values
-  //Validate form credentials
-  //Store data in local storage
-  //If invalid show error messges
-  //If valid Go to login page
-  //Show success message
 
+function submitHandler(event) {
   event.preventDefault();
-  
-  let parsed = JSON.parse(localStorage.getItem("user_credentials"));
-  if (parsed == null) {
-    localStorage.setItem("user_credentials", JSON.stringify([]));
+
+  //Get form values
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email_id").value;
+  const secretCode = document.getElementById("secret_code").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirm_password").value;
+
+  //Validate form credentials
+
+  if (secretCode != "Freshwork@2021") {
+    document.getElementById("error_message_div").innerHTML =
+      "Invalid secret code";
+    return;
   }
 
-  var pw1 = document.getElementById("password1").value;
-  var pw2 = document.getElementById("password2").value;
-  var pw3 = document.getElementById("secret_code").value;
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email_id").value;
+  if (password != confirmPassword) {
+    document.getElementById("error_message_div").innerHTML =
+      "Passwords are not same";
+    return;
+  }
 
-  const y = localStorage.getItem("user_credentials");
-  const array = JSON.parse(y);
+  //Check local storage is empty or not
+
+  let userCredentials = JSON.parse(localStorage.getItem("user_credentials"));
+  if (userCredentials == null) {
+    localStorage.setItem("user_credentials", JSON.stringify([]));
+    userCredentials = [];
+  }
+
+  //Checking if the user mail id already exists in the register list
+  //If already exist show error messges
 
   let isEmailAlreadyExist = false;
-
-  for (let i of array) {
-    let a= i.email_id;
-    if (email == a) {
-      isEmailAlreadyExist = true;
-      break;
+  if (userCredentials != []) {
+    for (let i of userCredentials) {
+      let emailInLocalStorage = i.email_id;
+      if (email == emailInLocalStorage) {
+        isEmailAlreadyExist = true;
+        break;
+      }
+    }
+    if (isEmailAlreadyExist) {
+      document.getElementById("error_message_div").innerHTML =
+        "Oops! Sorry ! This mail id already exists";
+      document.getElementById("error_message_div").style.marginLeft = "65px";
+      return;
     }
   }
-  if (name === " ") {
-    document.getElementById("message1").innerHTML = "***Name must not be empty";
-    return;
-  }
-  if (isEmailAlreadyExist) {
-    document.getElementById("emailId").innerHTML =
-      "***Oops! Sorry ! This mail id already exists";
-    return;
-  }
 
-  let object_to_focus;
-  
-  if (pw1 == "") {
-    document.getElementById("message1").innerHTML =
-      "**Fill the password please!";
-    return;
-  }
-  if(pw3!="Freshwork@2001"){
-    alert("Invalid secret code");
-    return;
-  }
-  if (pw2 == "") {
-    document.getElementById("message2").innerHTML =
-      "**Enter the password please!";
-    return;
-  }
+  //else store data in local storage, show sucess message and redirect to signin page
 
-  if (pw1.length < 8) {
-    document.getElementById("message1").innerHTML =
-      "**Password length must be atleast 8 characters";
-    return;
-  }
+  let object_to_add_in_userList;
 
-  if (pw1.length > 15) {
-    document.getElementById("message1").innerHTML =
-      "**Password length must not exceed 15 characters";
-    return;
-  }
+  object_to_add_in_userList = {
+    name: name,
+    email_id: email,
+    password: password,
+    role: "admin",
+  };
 
-  if (pw1 != pw2) {
-    document.getElementById("message2").innerHTML = "**Passwords are not same";
-    return;
-  } else {
-    object_to_focus = {
-      name: name,
-      email_id: email,
-      password: pw1,
-      role: "admin",
-    };
-    alert(`Registration is done successfully `);
-  }
-  console.log(object_to_focus);
-  updateList(object_to_focus);
+  alert(`Registration is done successfully `);
+  updateusersList(object_to_add_in_userList);
   window.location.href = "login.html";
 }
-let inArray = [];
-function updateList(object) {
+
+function updateusersList(object) {
   console.log(object);
-  list.push(object);
-  const arrayToString = JSON.stringify(list);
+  usersList.push(object);
+  const arrayToString = JSON.stringify(usersList);
   localStorage.setItem("user_credentials", arrayToString);
 }
 function getAllFields() {
+  let inArray = [];
   const arrayToString = localStorage.getItem("user_credentials");
   if (arrayToString) {
     inArray = JSON.parse(arrayToString);
@@ -112,7 +90,6 @@ function getAllFields() {
 }
 function pageOnLoadHandler() {
   const all = getAllFields();
-  list = all;
+  usersList = all;
 }
-
 pageOnLoadHandler();
