@@ -1,21 +1,53 @@
-let usersList = [];
-function Redirect_to_admin_page() {
-  window.location.href = "../pages/admin.html";
+// Validating class for Registeration Process
+class RegisterValidator {
+  static arePasswordsEqual(Password, ConfirmPassword) {
+    if (Password != ConfirmPassword) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  static isEmailAlreadyExistsValidator(listOfUsers, Email_id) {
+    let isTrueOrFalse = true;
+    if (listOfUsers != []) {
+      for (let i of listOfUsers) {
+        if (i.email_id == Email_id) {
+          isTrueOrFalse = false;
+          break;
+        }
+      }
+    }
+    return isTrueOrFalse;
+  }
+  static ConstructObject(userName, userEmail, userPassword) {
+    return {
+      name: userName,
+      email_id: userEmail,
+      password: userPassword,
+      role: "student",
+    };
+  }
 }
+
+// Initialisation of array of users
+
+let usersList = [];
 
 function submitHandler(event) {
   event.preventDefault();
 
   //Get form values
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email_id").value;
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirm_password").value;
+  const [name, email, password, confirmPassword] = [
+    document.getElementById("name").value,
+    document.getElementById("email_id").value,
+    document.getElementById("password").value,
+    document.getElementById("confirm_password").value,
+  ];
 
   //Validate form credentials
 
-  if (password != confirmPassword) {
+  if (!RegisterValidator.arePasswordsEqual(password, confirmPassword)) {
     document.getElementById("error_message_div").innerHTML =
       "Passwords are not same";
     return;
@@ -30,38 +62,21 @@ function submitHandler(event) {
   }
 
   //Checking if the user mail id already exists in the register list
-  //If already exist show error messges
+  //If already exist show error messages
 
-  let isEmailAlreadyExist = false;
-  if (userCredentials != []) {
-    for (let i of userCredentials) {
-      let emailInLocalStorage = i.email_id;
-      if (email == emailInLocalStorage) {
-        isEmailAlreadyExist = true;
-        break;
-      }
-    }
-    if (isEmailAlreadyExist) {
-      document.getElementById("error_message_div").innerHTML =
-        "Oops! Sorry ! This mail id already exists";
-      document.getElementById("error_message_div").style.marginLeft = "65px";
-      return;
-    }
+  if (
+    !RegisterValidator.isEmailAlreadyExistsValidator(userCredentials, email)
+  ) {
+    document.getElementById("error_message_div").innerHTML =
+      "Oops! Sorry ! This mail id already exists";
+    document.getElementById("error_message_div").style.marginLeft = "65px";
+    return;
   }
 
-  //else store data in local storage, show sucess message and redirect to signin page
-
-  let object_to_add_in_userList;
-
-  object_to_add_in_userList = {
-    name: name,
-    email_id: email,
-    password: password,
-    role: "student",
-  };
+  //Else store data in local storage, show sucess message and redirect to signin page
 
   alert(`Registration is done successfully `);
-  updateusersList(object_to_add_in_userList);
+  updateusersList(RegisterValidator.ConstructObject(name, email, password));
   window.location.href = "login.html";
 }
 
@@ -73,6 +88,7 @@ function updateusersList(object) {
   const arrayToString = JSON.stringify(usersList);
   localStorage.setItem("user_credentials", arrayToString);
 }
+
 function getAllFields() {
   //Return already existing contents in local storage
 
@@ -92,3 +108,7 @@ function pageOnLoadHandler() {
   usersList = all;
 }
 pageOnLoadHandler();
+
+function Redirect_to_admin_page() {
+  window.location.href = "../pages/admin.html";
+}
