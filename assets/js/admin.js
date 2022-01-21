@@ -69,7 +69,7 @@ function submitHandler(event) {
 
   //Check local storage is empty or not
 
-  let userCredentials = JSON.parse(localStorage.getItem("user_credentials"));
+  let userCredentials = JSON.parse(localStorage.getItem("user_credentials"))??[];
   if (userCredentials == null) {
     localStorage.setItem("user_credentials", JSON.stringify([]));
     userCredentials = [];

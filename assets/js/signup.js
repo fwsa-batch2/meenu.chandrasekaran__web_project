@@ -101,6 +101,7 @@ function getAllFields() {
   }
   return inArray;
 }
+
 function pageOnLoadHandler() {
   //Equating empty user list to contents already existing in local storage
 
