@@ -1,48 +1,47 @@
+class LoginValidator {
+  static isDetailsAlreadyExist(array, mail, Password) {
+    let trueOrFalse = false;
+    for (let i of array) {
+      if (mail == i.email_id && Password == i.password) {
+        localStorage.setItem(
+          "loggedInUser",
+          JSON.stringify({ email: mail, role: i.role })
+        );
+        trueOrFalse = true;
+        break;
+      }
+    }
+    return trueOrFalse;
+  }
+}
 function submitHandler(event) {
-  //Get form values
-  //Validate form credentials
-  //Validate email and password in local storage
-  //If invalid show error messges
-  //Show success message
-  //If valid Go to home page
 
   event.preventDefault();
-  let userEmail = document.getElementById("mail").value;
-  let userPass = document.getElementById("pass").value;
-  let parsed = JSON.parse(localStorage.getItem("user_credentials"));
-  if (parsed == null) {
+
+  //Get form values
+  const [userEmail, userPassword] = [
+    document.getElementById("mail").value,
+    document.getElementById("password").value,
+  ];
+
+  //Check local storage is empty or not
+
+  let listOfUsers = JSON.parse(localStorage.getItem("user_credentials"));
+  if (listOfUsers == null) {
     localStorage.setItem("user_credentials", JSON.stringify([]));
-  }
-  let userCredentials = JSON.parse(localStorage.getItem("user_credentials"));
-  let isUserExist = false;
-  let log_mail = "";
-  let log_role = "";
-
-  for (let i of userCredentials) {
-    let email = i.email_id;
-    let password = i.password;
-    let role = i.role;
-
-    if (userEmail == email && userPass == password) {
-      isUserExist = true;
-      log_mail = email;
-      log_role = role;
-      break;
-    }
+    listOfUsers = [];
   }
 
-  if (isUserExist) {
-    let object = { email: log_mail, role: log_role };
-    localStorage.setItem("loggedInUser", JSON.stringify(object));
+  //Checking whether the given email id or password is already present in list of registered users or not
+
+  if (
+    LoginValidator.isDetailsAlreadyExist(listOfUsers, userEmail, userPassword)
+  ) {
     alert("Welcome!You have logged in successfully.");
     window.location.href = "management.html";
   } else {
-    document.getElementById("error").innerHTML = "Invalid email id or password";
+    document.getElementById("error_message_div").innerHTML =
+      "Invalid email id or password";
     return null;
   }
-}
-function colorChange() {
-  document.getElementById("submit").style.backgroundColor = "#46a9a9";
-  document.getElementById("submit").style.color = "white";
-  document.getElementById("submit").style.borderColor = "#46a9a9";
 }
