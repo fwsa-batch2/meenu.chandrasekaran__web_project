@@ -1,7 +1,7 @@
 // Validating class for Registeration Process
 class RegisterValidator {
   static arePasswordsEqual(Password, ConfirmPassword) {
-    let Bool_Value = true;
+    let Bool_Value;
     if (Password != ConfirmPassword) {
       Bool_Value = false;
     } else {
@@ -10,7 +10,7 @@ class RegisterValidator {
     return Bool_Value;
   }
   static isSecretCodeValid(SecretCode) {
-    let Bool_value = true;
+    let Bool_value;
     if (SecretCode != "Freshwork@2021") {
       Bool_value = false;
     } else {

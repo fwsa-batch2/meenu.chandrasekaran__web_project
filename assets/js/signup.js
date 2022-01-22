@@ -1,7 +1,7 @@
 // Validating class for Registeration Process
 class RegisterValidator {
   static arePasswordsEqual(Password, ConfirmPassword) {
-    let Boolean_Value=true;
+    let Boolean_Value;
     if (Password != ConfirmPassword) {
       Boolean_Value=false;
     } else {
