@@ -1,76 +1,96 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="./../assets/js/loginCheck.js"></script>
+
+    <script src="./../assets/js/admin_check.js"></script>
+
     <title>Notification</title>
-    <link rel="shortcut icon" href="./../assets/images/New Project (22).png">
+
+    <link rel="shortcut icon" href="./../assets/images/logo.png" />
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <meta charset="UTF-8" />
-    <script src="./../assets/js/loginCheck.js"></script>
-    <script src="./../assets/js/admin_check.js"></script>
+
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="./../assets/css/create_not.css" />
-    <style>
-      body {
-        background-image: url("../assets/images/561.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 125%;
-      }
-    </style>
   </head>
-  <body>
-    <div class="form">
-      <br />
-      <h1>CREATE</h1>
-      <form class="box" onsubmit="submitHandler(event)">
-        <input
-          type="textarea"
-          name="Name"
-          placeholder="Enter Your notification title"
-          id="title"
-          minlength="3"
-          autofocus
-          required
-        />
 
-        <input
-          type="textarea"
-          name="Name"
-          placeholder="Enter Subtitle"
-          id="st"
-          minlength="3"
-          required
-        />
+  <body
+    style="
+      background-image: url('../assets/images/background_createNotifications.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 125%;
+    "
+  >
+    <main>
 
-        <textarea
-          cols="27"
-          rows="2"
-          placeholder="Enter Other data"
-          id="data"
-          minlength="3"
-          required
-        ></textarea>
-        
-        <br />
-        <button type="button" class="btn btn-outline-danger" id="redirect" onclick="reload()">Clear</button>
-        <span class="submitBtn"
-          ><input type="submit" name="submitBtn" value="Submit" class="btn btn-outline-danger" id="submitBtn"
-        /></span>
+      
+      <div class="form">
+        <div class="heading_container"><h1 class="heading">CREATE</h1></div>
+        <form class="form_container" onsubmit="submitHandler(event)">
+          <input
+            type="textarea"
+            name="Name"
+            placeholder="Enter Your notification title"
+            id="title"
+            minlength="3"
+            autofocus
+            required
+          />
 
-        
-        <br /><br />
-      </form>
-    </div>
+          <input
+            type="textarea"
+            name="Name"
+            placeholder="Enter Subtitle"
+            id="subtitle"
+            minlength="3"
+            required
+          />
+
+          <textarea
+            cols="27"
+            rows="2"
+            placeholder="Enter Other data"
+            id="data"
+            minlength="3"
+            required
+          ></textarea>
+
+          <br />
+
+          <input
+            type="reset"
+            value="Clear"
+            class="btn btn-outline-danger"
+            id="clearButton"
+          />
+          <span class="submitBtn"
+            ><input
+              type="submit"
+              name="submitBtn"
+              value="Submit"
+              class="btn btn-outline-danger"
+          /></span>
+        </form>
+      </div>
+    </main>
+
     <script src="./../assets/js/create_not.js"></script>
   </body>
 </html>

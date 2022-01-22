@@ -130,7 +130,7 @@ nav .profile-details em {
   position: relative;
   padding-top: 104px;
 }
-.grid-container-element12 {
+.notification_container {
   width: 1545px;
   height: 100px;
   margin-top: -15px;
@@ -140,65 +140,53 @@ nav .profile-details em {
   background-color: #63bfbf;
   color: white;
 }
-.a1 {
+.image_container {
   float: left;
   margin-left: 20px;
   margin-top: 22px;
   opacity: 0.8;
 }
-.a2 {
+.title_container {
   float: right;
   margin-top: 25px;
   font-size: 19px;
   font-weight: bold;
   margin-right: 1100px;
 }
-.w12 {
+.subtitle_container {
   float: left;
   margin-left: 15px;
   font-weight: bold;
   color: #acdcdc;
 }
-.w13 {
+.data_container {
   float: right;
   margin-right:970px;
   font-size: 16px;
   font-weight: bold;
 }
-.w14 {
+.time_container {
   float: right;
-  margin-right: -1170px;
+  margin-right: -1270px;
   margin-top: -20px;
   font-size: 16px;
   font-weight: bold;
 }
-.w13 a {
+.data_container a {
   text-decoration: none;
   color: #d0ebeb;
 }
-.w13 a:hover {
+.data_container a:hover {
   color: #f4fafa;
   text-decoration: none;
 }
-.a4 {
-  float: right;
-  margin-right: 1340px;
-  font-weight: bold;
-  font-size: 17px;
-}
-.a7 {
-  float: right;
-  margin-right: 1060px;
-  font-weight: bold;
-  font-size: 17px;
-}
-.edit button {
+.createButtonContainer button {
   color: #ec745a;
   border: 1px #ec745a solid;
   margin-left: 1270px;
   border-radius: 5px;
 }
-.edit button:hover {
+.createButtonContainer button:hover {
   background-color: #ec745a;
   border: 1px #ec745a solid;
 }

@@ -1,28 +1,43 @@
-function redirect() {
-  document.getElementById("redirect").style.backgroundColor = "#ec745a";
+function onPageLoad() {
+  //Getting list of notifications from local storage
+
+  const notificationsList = JSON.parse(localStorage.getItem("notifications"));
+
+  let innerHtmlContent = "";
+
+  //Creating innerHTML content to be pushed in html page dynamically
+
+  for (let i of notificationsList) {
+    innerHtmlContent += `<div class=\"notification_container\">
+  <div class=\"image_container\"><img src=\"../assets/images/bell.png\" height=\"50px\" width=\"50px\" alt=\"\"></div>
+  <div class=\"title_container\">
+  ${i.title}
+  </div><br><br>
+  <div class=\"sub_container\">
+  <span class=\"subtitle_container\">${i.sub} </span><span class=\"data_container\"> <a href=\"https://freshworks.zoom.us/my/b2classroom\">${i.data}</a></span>
+  <span class="time_container">${i.hour}:${i.minutes}(${i.date}/${i.month}/${i.year}) </span>
+  </div>
+  
+  </div>`;
+  }
+
+  console.log(innerHtmlContent);
+
+  document.getElementById("listOfNotifications").innerHTML = innerHtmlContent;
+}
+
+onPageLoad();
+
+function logout() {
+  //Function to log out
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "./../index.html";
+}
+
+function Redirect_to_createNotifications() {
   window.location.href = "./../pages/create_not.html";
 }
-let lS = JSON.parse(localStorage.getItem("notifications"));
-let str = "";
-for (let i of lS) {
-  str += `<div class=\"grid-container-element12\">
-  <div class=\"a1\"><img src=\"../assets/images/bell.png\" height=\"50px\" width=\"50px\" alt=\"\"></div>
-  <div class=\"a2\">
-      ${i.title}
-  </div><br><br>
-  <div class=\"a3\">
-     <span class=\"w12\">${i.sub} </span><span class=\"w13\"> <a href=\"https://freshworks.zoom.us/my/b2classroom\">${i.data}</a></span>
-     <span class="w14">${i.hour}:${i.minutes}(${i.date}/${i.month}/${i.year}) </span>
-  </div>
 
-</div>`;
-}
-console.log(str);
-document.getElementById("new").innerHTML = str;
-function onc(){
-  window.location.href="./../index.html";
-}
-function logout(){
-  localStorage.removeItem("loggedInUser");
-  window.location.href="./../index.html";
+function Redirect_to_indexPage() {
+  window.location.href = "./../index.html";
 }

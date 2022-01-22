@@ -1,50 +1,47 @@
-function reload() {
-  window.location.reload();
-}
 function submitHandler(event) {
+  //Prevent default method of refreshing on submitting a function
+
   event.preventDefault();
-  document.getElementById("submitBtn").style.backgroundColor = "#46a9a9";
-  document.getElementById("submitBtn").style.color = "white";
+
+  //Getting form values
+  const [title, data, subtitle, date] = [
+    document.getElementById("title").value,
+    document.getElementById("data").value,
+    document.getElementById("subtitle").value,
+    new Date(),
+  ];
+
+  //Checking whether the local storage is empty or not
   if (localStorage.getItem("notifications") == null) {
     localStorage.setItem("notifications", JSON.stringify([]));
-    let title = document.getElementById("title").value;
-    let data = document.getElementById("data").value;
-    let st = document.getElementById("st").value;
-    let date = new Date();
-    updatePage([
-      title,
-      data,
-      date.getDate(),
-      date.getMonth() + 1,
-      date.getFullYear(),
-      date.getHours(),
-      date.getMinutes(),
-      st,
-    ]);
-    alert("Notification has been sent to everybody !");
-    window.location.href = "../pages/notification.html";
-  } else {
-    let title = document.getElementById("title").value;
-    let data = document.getElementById("data").value;
-    let date = new Date();
-    let st = document.getElementById("st").value;
-    updatePage([
-      title,
-      data,
-      date.getDate(),
-      date.getMonth() + 1,
-      date.getFullYear(),
-      date.getHours(),
-      date.getMinutes(),
-      st,
-    ]);
-    alert("Notification has been sent to everybody !");
-    window.location.href = "../pages/notification.html";
   }
+
+  //Pushing object to local storage
+  updatePage([
+    title,
+    data,
+    date.getDate(),
+    date.getMonth() + 1,
+    date.getFullYear(),
+    date.getHours(),
+    date.getMinutes(),
+    subtitle,
+  ]);
+
+  //After setting object to local storage redirect to list notifications page
+
+  alert("Notification has been sent to everybody !");
+
+  window.location.href = "../pages/notification.html";
 }
 
 function updatePage(array) {
-  let str = getAllFields();
+
+  // Getting already existing contents from local storage
+
+  let listOfNotificationsInLocalStorage = getAllFields();
+  
+  //Creating object to set in local storage
   let object = {
     title: array[0],
     data: array[1],
@@ -55,10 +52,19 @@ function updatePage(array) {
     minutes: array[6],
     sub: array[7],
   };
-  str.push(object);
-  console.log(str);
-  localStorage.setItem("notifications", JSON.stringify(str));
+
+  //Setting created object to local storage
+
+  listOfNotificationsInLocalStorage.push(object);
+
+  localStorage.setItem(
+    "notifications",
+    JSON.stringify(listOfNotificationsInLocalStorage)
+  );
 }
+
 function getAllFields() {
+
+  //Returns the already existing content from local storage
   return JSON.parse(localStorage.getItem("notifications"));
 }

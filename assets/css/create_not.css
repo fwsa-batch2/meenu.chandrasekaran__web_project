@@ -10,19 +10,22 @@
   width: 700px;
   border-radius: 25px;
   margin-left: 600px;
-  margin-top: 170px;
+  margin-top: 30px;
   background-color: #cfecec;
+}
+.heading{
+  padding-top: 30px;
 }
 h1 {
   font-size: 27px;
   margin-left: 300px;
-  margin-top: 15px;
-  margin-bottom: 35px;
+  margin-top: 200px;
+  margin-bottom: 55px;
   color: #296565;
   font-weight: normal;
 }
 #title:focus,
-#st:focus,
+#subtitle:focus,
 #data:focus {
   border-color: #63bfbf;
   color: #296565;
@@ -69,8 +72,8 @@ input[type="submit"]:hover {
 
   border: 2px #63bfbf solid;
 }
-#redirect {
-  border-radius: a0px;
+#clearButton {
+  border-radius: 10px;
   border: 2px solid;
   margin-left: 220px;
 
@@ -80,14 +83,10 @@ input[type="submit"]:hover {
   letter-spacing: 0.5px;
   color: #ec745a;
 }
-#redirect:hover {
+#clearButton:hover {
   cursor: pointer;
   background-color: #ec745a;
   border-color: #ec745a;
   color: white;
 }
-#message1 {
-  color: red;
-  font-size: 17px;
-  padding-left: 15px;
-}
+
