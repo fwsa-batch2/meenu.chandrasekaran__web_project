@@ -7,6 +7,10 @@
 }
 .form_and_heading_container h1 {
   margin-bottom: 30px;
+  color: #296565;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 30px;
 }
 .form_and_heading_container input[type="email"],
 .form_and_heading_container input[type="password"] {
@@ -56,12 +60,6 @@
 .form_and_heading_container input[type="password"]::placeholder {
   color: #153232;
   font-weight: normal;
-}
-.form_and_heading_container h1 {
-  color: #296565;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 30px;
 }
 .form_and_heading_container input[type="text"]:focus,
 .form_and_heading_container input[type="email"]:focus,

@@ -3,15 +3,11 @@ class RegisterValidator {
   static arePasswordsEqual(Password, ConfirmPassword) {
     if (Password != ConfirmPassword) {
       return false;
-    } else {
-      return true;
     }
   }
   static isSecretCodeValid(SecretCode) {
     if (SecretCode != "Freshwork@2021") {
       return false;
-    } else {
-      return true;
     }
   }
   static isEmailAlreadyExistsValidator(listOfUsers, Email_id) {

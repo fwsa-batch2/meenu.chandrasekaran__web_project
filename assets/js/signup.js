@@ -3,8 +3,6 @@ class RegisterValidator {
   static arePasswordsEqual(Password, ConfirmPassword) {
     if (Password != ConfirmPassword) {
       return false;
-    } else {
-      return true;
     }
   }
   static isEmailAlreadyExistsValidator(listOfUsers, Email_id) {
