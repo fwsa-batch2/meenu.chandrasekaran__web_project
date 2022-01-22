@@ -1,9 +1,13 @@
 // Validating class for Registeration Process
 class RegisterValidator {
   static arePasswordsEqual(Password, ConfirmPassword) {
+    let Boolean_Value=true;
     if (Password != ConfirmPassword) {
-      return false;
+      Boolean_Value=false;
+    } else {
+      Boolean_Value=true;
     }
+    return Boolean_Value;
   }
   static isEmailAlreadyExistsValidator(listOfUsers, Email_id) {
     let isTrueOrFalse = true;

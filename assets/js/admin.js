@@ -1,14 +1,22 @@
 // Validating class for Registeration Process
 class RegisterValidator {
   static arePasswordsEqual(Password, ConfirmPassword) {
+    let Bool_Value = true;
     if (Password != ConfirmPassword) {
-      return false;
+      Bool_Value = false;
+    } else {
+      Bool_Value = true;
     }
+    return Bool_Value;
   }
   static isSecretCodeValid(SecretCode) {
+    let Bool_value = true;
     if (SecretCode != "Freshwork@2021") {
-      return false;
+      Bool_value = false;
+    } else {
+      Bool_value = true;
     }
+    return Bool_value;
   }
   static isEmailAlreadyExistsValidator(listOfUsers, Email_id) {
     let isTrueOrFalse = true;
@@ -65,7 +73,8 @@ function submitHandler(event) {
 
   //Check local storage is empty or not
 
-  let userCredentials = JSON.parse(localStorage.getItem("user_credentials"))??[];
+  let userCredentials =
+    JSON.parse(localStorage.getItem("user_credentials")) ?? [];
   if (userCredentials == null) {
     localStorage.setItem("user_credentials", JSON.stringify([]));
     userCredentials = [];
