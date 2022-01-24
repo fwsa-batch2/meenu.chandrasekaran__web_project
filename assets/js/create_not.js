@@ -12,9 +12,11 @@ function submitHandler(event) {
   ];
 
   //Checking whether the local storage is empty or not
-  if (localStorage.getItem("notifications") == null) {
-    localStorage.setItem("notifications", JSON.stringify([]));
-  }
+  let NotificationsList =
+    localStorage.getItem("notifications") == null
+      ? []
+      : JSON.parse(localStorage.getItem("notifications"));
+  localStorage.setItem("notifications", JSON.stringify(NotificationsList));
 
   //Pushing object to local storage
   updatePage([
@@ -36,11 +38,10 @@ function submitHandler(event) {
 }
 
 function updatePage(array) {
-
   // Getting already existing contents from local storage
 
   let listOfNotificationsInLocalStorage = getAllFields();
-  
+
   //Creating object to set in local storage
   let object = {
     title: array[0],
@@ -64,7 +65,6 @@ function updatePage(array) {
 }
 
 function getAllFields() {
-
   //Returns the already existing content from local storage
   return JSON.parse(localStorage.getItem("notifications"));
 }
