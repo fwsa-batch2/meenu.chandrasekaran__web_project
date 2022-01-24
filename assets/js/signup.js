@@ -57,11 +57,9 @@ function submitHandler(event) {
 
   //Check local storage is empty or not
 
-  let userCredentials = JSON.parse(localStorage.getItem("user_credentials"));
-  if (userCredentials == null) {
-    localStorage.setItem("user_credentials", JSON.stringify([]));
-    userCredentials = [];
-  }
+  let userCredentials = (localStorage.getItem("user_credentials")==null)?[]:JSON.parse((localStorage.getItem("user_credentials")));
+  localStorage.setItem("user_credentials",JSON.stringify(userCredentials));
+  
 
   //Checking if the user mail id already exists in the register list
   //If already exist show error messages

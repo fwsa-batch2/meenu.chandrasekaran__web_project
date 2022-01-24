@@ -26,11 +26,8 @@ function submitHandler(event) {
 
   //Check local storage is empty or not
 
-  let listOfUsers = JSON.parse(localStorage.getItem("user_credentials"));
-  if (listOfUsers == null) {
-    localStorage.setItem("user_credentials", JSON.stringify([]));
-    listOfUsers = [];
-  }
+  let listOfUsers =(localStorage.getItem("user_credentials")==null)?[]:JSON.parse((localStorage.getItem("user_credentials")));
+  localStorage.setItem("user_credentials",JSON.stringify(listOfUsers));
 
   //Checking whether the given email id or password is already present in list of registered users or not
 
