@@ -345,7 +345,18 @@
 
       </div>
       <script src="./../assets/js/attendance.js"></script>
-
+      <script>
+        $("button").click(function () {
+    let clicked = true;
+    if (clicked) {
+      $(this).toggleClass('active');
+      clicked = true;
+    } else {
+      $(this).removeClass('active');
+      clicked = false;
+    }
+  });
+      </script>
 
 </body>
 

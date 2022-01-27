@@ -26,19 +26,6 @@ function setColor(btn, color) {
       
     }
   }
-  function s8(btn, color) {
-    var count = 1;
-    var property = document.getElementById(btn)
-    if (count == 0) {
-      property.style.backgroundColor = "white"
-      
-    }
-    else {
-      property.style.backgroundColor = "#F087A7"
-      property.style.color = "black"
-      
-    }
-  }
   
   function se(btn, color) {
     var count = 1;
@@ -71,13 +58,4 @@ function setColor(btn, color) {
     window.location = src;
 
   }
-  $("button").click(function () {
-    let clicked = true;
-    if (clicked) {
-      $(this).toggleClass('active');
-      clicked = true;
-    } else {
-      $(this).removeClass('active');
-      clicked = false;
-    }
-  });
+  
