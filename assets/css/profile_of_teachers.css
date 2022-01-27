@@ -1,0 +1,58 @@
+.background{
+    background: url(https://40obml2t8u691fd442y9pg71-wpengine.netdna-ssl.com/wp-content/uploads/login-page-bg.jpg);
+    }
+
+    .calendar {
+        width: 150px;
+        position: absolute;
+        right: 134px;
+        bottom: 450px;
+
+
+    }
+    .calendar:hover{
+        background-color:lightcyan;
+    }
+
+    .heading_container{
+        width: 2000px;
+        height: 300px;
+        position: absolute;
+        top: -70px;
+        right: 250px;
+    }
+    .heading{
+        font-size: 100px;
+        position: absolute;
+        top: 50px;
+    left: 670px;
+
+    }
+    /* staff1 details */
+
+    .details{
+        font-size: 30px;
+        font-family: sans-serif;
+        color: aliceblue;
+        position: absolute;
+        top: 30%;
+        left: 100px;
+        list-style: none;
+
+    }
+
+
+
+    .teacher_img{
+        height: 70%;
+        position: absolute;
+        left: 900px;
+        top: 250px;
+        transform: scalex(-1);
+    }
+
+    span{
+        font-size: larger;
+        font-style: italic;
+        color:red;
+    }

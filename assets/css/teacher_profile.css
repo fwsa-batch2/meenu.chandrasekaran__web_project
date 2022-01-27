@@ -1,0 +1,84 @@
+.background {
+    background: url(https://40obml2t8u691fd442y9pg71-wpengine.netdna-ssl.com/wp-content/uploads/login-page-bg.jpg);
+}
+
+
+/* id background */
+.teachers_list {
+background-color: whitesmoke;
+width: 350px;
+height: 480px;
+position: absolute;
+top: 26%;
+left: 40%;
+border-radius: 10px;
+}
+/* teacher heading */
+.teacher-heading{
+font-size: 40px;
+position: absolute;
+left: 35px;
+}
+
+/* teacher logo */
+.tech {
+width: 300;
+position: absolute;
+bottom: 70px;
+
+}
+
+/* freshworks logo */
+.freshworks {
+width: 250px;
+position: absolute;
+right: 20px;
+top: 20px;
+background-color: aliceblue;
+}
+
+/* search box */
+.search {
+width: 300px;
+height: 40px;
+/* box-shadow: 1px 1px 1px 1px; */
+border-radius: 5px;
+position: absolute;
+bottom: 20px;
+}
+
+.search:hover {
+background: whitesmoke;
+}
+
+input:focus~label,
+input:valid~label {
+transform: translatey(-33px);
+background: whitesmoke;
+}
+
+
+.search_container label {
+position: absolute;
+left: 30px;
+top: 465px;
+pointer-events: none;
+color: grey;
+
+}
+
+input:focus~label {
+transform: translatey(-55px);
+}
+.ul{
+margin-top: 700px;
+margin-left: 745px;
+background-color: aliceblue;
+
+height:120px;
+width:320px;
+color:black;
+border-radius: 5px;
+font-size: 17px;
+font-weight: bold;
+}
