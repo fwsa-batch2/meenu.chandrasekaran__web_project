@@ -3,12 +3,12 @@ function setColor(btn, color) {
     var property = document.getElementById(btn)
     if (count == 0) {
       property.style.backgroundColor = "white"
-      count = 1;
+      
     }
     else {
       property.style.backgroundColor = "#3AFA98"
       property.style.color = "black"
-      count = 0;
+      
     }
   }
   
@@ -18,12 +18,12 @@ function setColor(btn, color) {
     var property = document.getElementById(btn)
     if (count == 0) {
       property.style.backgroundColor = "white"
-      count = 1;
+     
     }
     else {
       property.style.backgroundColor = "#F087A7"
       property.style.color = "black"
-      count = 0;
+      
     }
   }
   function s8(btn, color) {
@@ -31,12 +31,12 @@ function setColor(btn, color) {
     var property = document.getElementById(btn)
     if (count == 0) {
       property.style.backgroundColor = "white"
-      count = 1;
+      
     }
     else {
       property.style.backgroundColor = "#F087A7"
       property.style.color = "black"
-      count = 0;
+      
     }
   }
   
@@ -45,12 +45,12 @@ function setColor(btn, color) {
     var property = document.getElementById(btn)
     if (count == 0) {
       property.style.backgroundColor = "white"
-      count = 1;
+      
     }
     else {
       property.style.backgroundColor = "#56A7DB"
       property.style.color = "black"
-      count = 0;
+     
     }
   }
 
@@ -72,7 +72,7 @@ function setColor(btn, color) {
 
   }
   $("button").click(function () {
-    clicked = true;
+    let clicked = true;
     if (clicked) {
       $(this).toggleClass('active');
       clicked = true;
