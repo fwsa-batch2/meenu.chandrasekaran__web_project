@@ -2,7 +2,7 @@
 
 ###### Git-hub Link: https://github.com/fwsa-batch-02/u2-school-management-ui
 
-###### Netlify link: https://u2-school-management-meenu.netlify.app/
+###### Domain link: https://u2schoolmanagement.fwsa.in/
 
 ###### Sonarcloud link: https://sonarcloud.io/project/overview?id=fwsa-batch-02_u2-school-management-ui
 ## Features
