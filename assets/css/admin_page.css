@@ -1,3 +1,30 @@
+#alert_message_container {
+  z-index: 200;
+  position: absolute;
+  border: 5px #46a9a9 solid;
+  background-color: white;
+  height: 200px;
+  width: 420px;
+  margin-top: 350px;
+  margin-left: 780px;
+  color: black;
+  border-radius: 10px;
+  padding-left: 25px;
+  padding-top: 30px;
+  font-weight: bold;
+  font-size: 17px;
+  display: none;
+}
+#alert_message_container button {
+  margin-left: 130px;
+  background-color: #46a9a9;
+  border-radius: 7px;
+  padding: 9px 25px;
+  color: #e7f5f5;
+}
+#alert_message_container button:hover {
+  background-color: #63bfbf;
+}
 #error_message_div {
   color: #e74d2c;
   margin-left: 37px;

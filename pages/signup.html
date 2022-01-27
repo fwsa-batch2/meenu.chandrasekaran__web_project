@@ -22,7 +22,10 @@
     "
   >
     <main>
+      <div id="alert_message_container">
+      </div>
       <div class="main_container">
+       
         <div class="sub_container">
           <span class="group_photo_container">
             <img
@@ -41,13 +44,11 @@
                 <button type="button" class="student_toggle_button">
                   Student
                 </button>
-                <button
-                  type="button"
+                <a href="./../pages/admin.html"
                   class="admin_toggle_button"
-                  onclick="Redirect_to_admin_page()"
                 >
                   Admin
-                </button>
+                </a>
               </div>
 
               <div
@@ -123,6 +124,8 @@
         </div>
       </div>
     </main>
+    <script src="../assets/js/validators.js"></script>
     <script src="../assets/js/signup.js"></script>
+    <script src="../assets/js/notify.js"></script>
   </body>
 </html>

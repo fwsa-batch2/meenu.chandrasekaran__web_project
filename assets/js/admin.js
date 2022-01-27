@@ -1,44 +1,3 @@
-// Validating class for Registeration Process
-class RegisterValidator {
-  static arePasswordsEqual(Password, ConfirmPassword) {
-    let Bool_Value;
-    if (Password != ConfirmPassword) {
-      Bool_Value = false;
-    } else {
-      Bool_Value = true;
-    }
-    return Bool_Value;
-  }
-  static isSecretCodeValid(SecretCode) {
-    let Bool_value;
-    if (SecretCode != "Freshwork@2021") {
-      Bool_value = false;
-    } else {
-      Bool_value = true;
-    }
-    return Bool_value;
-  }
-  static isEmailAlreadyExistsValidator(listOfUsers, Email_id) {
-    let isTrueOrFalse = true;
-    if (listOfUsers != []) {
-      for (let i of listOfUsers) {
-        if (i.email_id == Email_id) {
-          isTrueOrFalse = false;
-          break;
-        }
-      }
-    }
-    return isTrueOrFalse;
-  }
-  static ConstructObject(userName, userEmail, userPassword) {
-    return {
-      name: userName,
-      email_id: userEmail,
-      password: userPassword,
-      role: "admin",
-    };
-  }
-}
 
 // Initialisation of array of users
 
@@ -49,19 +8,17 @@ function submitHandler(event) {
 
   //Get form values
 
-  const [name, email, password, confirmPassword, secretCode] = [
-    document.getElementById("name").value,
-    document.getElementById("email_id").value,
-    document.getElementById("password").value,
-    document.getElementById("confirm_password").value,
-    document.getElementById("secret_code").value,
-  ];
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email_id").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirm_password").value;
+  const secretCode=document.getElementById("secret_code").value;
 
   //Validate form credentials
 
-  if (!RegisterValidator.isSecretCodeValid(secretCode)) {
+  if (!RegisterValidator.isPasswordValid(password)) {
     document.getElementById("error_message_div").innerHTML =
-      "Invalid Secret Code";
+      "Passwords should not contain empty space";
     return;
   }
 
@@ -73,15 +30,25 @@ function submitHandler(event) {
 
   //Check local storage is empty or not
 
+
+  let listOfUsersFromLocalStorage=JSON.parse(localStorage.getItem("userCredentials"));
   let userCredentials =
-    localStorage.getItem("user_credentials") == null
+    listOfUsersFromLocalStorage == null
       ? []
-      : JSON.parse(localStorage.getItem("user_credentials"));
-  localStorage.setItem("user_credentials", JSON.stringify(userCredentials));
+      : listOfUsersFromLocalStorage;
+  localStorage.setItem("userCredentials", JSON.stringify(userCredentials));
 
   //Checking if the user mail id already exists in the register list
   //If already exist show error messages
-
+  
+  if (
+    !RegisterValidator.isSecretCodeValid(secretCode)
+  ) {
+    document.getElementById("error_message_div").innerHTML =
+      "Invalid Secret Code";
+    document.getElementById("error_message_div").style.marginLeft = "65px";
+    return;
+  }
   if (
     !RegisterValidator.isEmailAlreadyExistsValidator(userCredentials, email)
   ) {
@@ -93,9 +60,10 @@ function submitHandler(event) {
 
   //Else store data in local storage, show sucess message and redirect to signin page
 
-  alert(`Registration is done successfully `);
-  updateusersList(RegisterValidator.ConstructObject(name, email, password));
-  window.location.href = "login.html";
+  updateusersList(RegisterValidator.constructObject(name, email, password,"admin"));
+  
+  Notify.success("You have registered successfully","alert_message_container","login.html");
+
 }
 
 function updateusersList(object) {
@@ -104,14 +72,14 @@ function updateusersList(object) {
   console.log(object);
   usersList.push(object);
   const arrayToString = JSON.stringify(usersList);
-  localStorage.setItem("user_credentials", arrayToString);
+  localStorage.setItem("userCredentials", arrayToString);
 }
 
 function getAllFields() {
   //Return already existing contents in local storage
 
   let inArray = [];
-  const arrayToString = localStorage.getItem("user_credentials");
+  const arrayToString = localStorage.getItem("userCredentials");
   if (arrayToString) {
     inArray = JSON.parse(arrayToString);
   } else {
@@ -119,6 +87,7 @@ function getAllFields() {
   }
   return inArray;
 }
+
 function pageOnLoadHandler() {
   //Equating empty user list to contents already existing in local storage
 
@@ -127,6 +96,6 @@ function pageOnLoadHandler() {
 }
 pageOnLoadHandler();
 
-function Redirect_to_student_Page() {
-  window.location.href = "../pages/signup.html";
+function Redirect_to_admin_page() {
+  window.location.href = "../pages/admin.html";
 }
