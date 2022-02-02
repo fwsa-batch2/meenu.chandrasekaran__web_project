@@ -1,10 +1,10 @@
 # U&sup2; - School Management App
 
-###### Git-hub Link: https://github.com/fwsa-batch-02/u2-school-management-ui
+###### Git-hub Link: https://github.com/fwsa-batch2/meenu.chandrasekaran__web_project
 
-###### Domain link: https://u2schoolmanagement.fwsa.in/
+###### Live URL link: https://fwsa-batch2.github.io/meenu.chandrasekaran__web_project/
 
-###### Sonarcloud link: https://sonarcloud.io/project/overview?id=fwsa-batch-02_u2-school-management-ui
+###### Sonarcloud link: https://sonarcloud.io/project/overview?id=fwsa-batch2_meenu.chandrasekaran__web_project
 ## Features
 
 1. Register ( Completed )
